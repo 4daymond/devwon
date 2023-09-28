@@ -890,75 +890,36 @@ var _Contact2 = _interopRequireDefault(_Contact);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* 
-Challenge: Add all the rest of the 
-data to the Contact card instances
-*/
-
 function App() {
     return _react2.default.createElement(
         "div",
         { className: "contacts" },
         _react2.default.createElement(_Contact2.default, {
             img: "./images/mr-whiskerson.png",
-            name: "Mr. Whiskerson"
+            name: "Mr. Whiskerson",
+            phone: "(212) 555-1234",
+            email: "mr.whiskaz@catnap.meow"
         }),
-        _react2.default.createElement(_Contact2.default, null),
-        _react2.default.createElement(_Contact2.default, null),
-        _react2.default.createElement(_Contact2.default, null)
+        _react2.default.createElement(_Contact2.default, {
+            img: "./images/fluffykins.png",
+            name: "Fluffykins",
+            phone: "(212) 555-2345",
+            email: "fluff@me.com"
+        }),
+        _react2.default.createElement(_Contact2.default, {
+            img: "./images/felix.png",
+            name: "Felix",
+            phone: "(212) 555-4567",
+            email: "thecat@hotmail.com"
+        }),
+        _react2.default.createElement(_Contact2.default, {
+            img: "./images/pumpkin.png",
+            name: "Pumpkin",
+            phone: "(0800) CAT KING",
+            email: "pumpkin@scrimba.com"
+        })
     );
 }
-// <div className="contact-card">
-//     <img src="./images/mr-whiskerson.png"/>
-//     <h3>Mr. Whiskerson</h3>
-//     <div className="info-group">
-//         <img src="./images/phone-icon.png" />
-//         <p>(212) 555-1234</p>
-//     </div>
-//     <div className="info-group">
-//         <img src="./images/mail-icon.png" />
-//         <p>mr.whiskaz@catnap.meow</p>
-//     </div>
-// </div>
-
-// <div className="contact-card">
-//     <img src="./images/fluffykins.png"/>
-//     <h3>Fluffykins</h3>
-//     <div className="info-group">
-//         <img src="./images/phone-icon.png" />
-//         <p>(212) 555-2345</p>
-//     </div>
-//     <div className="info-group">
-//         <img src="./images/mail-icon.png" />
-//         <p>fluff@me.com</p>
-//     </div>
-// </div>
-
-// <div className="contact-card">
-//     <img src="./images/felix.png"/>
-//     <h3>Felix</h3>
-//     <div className="info-group">
-//         <img src="./images/phone-icon.png" />
-//         <p>(212) 555-4567</p>
-//     </div>
-//     <div className="info-group">
-//         <img src="./images/mail-icon.png" />
-//         <p>thecat@hotmail.com</p>
-//     </div>
-// </div>
-
-// <div className="contact-card">
-//     <img src="./images/pumpkin.png"/>
-//     <h3>Pumpkin</h3>
-//     <div className="info-group">
-//         <img src="./images/phone-icon.png" />
-//         <p>(0800) CAT KING</p>
-//     </div>
-//     <div className="info-group">
-//         <img src="./images/mail-icon.png" />
-//         <p>pumpkin@scrimba.com</p>
-//     </div>
-// </div>
 
 exports.default = App;
 
@@ -1026,15 +987,19 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Contact() {
+function Contact(props) {
+    /**
+     * Challenge: Fix the code below to use the `props`
+     * object values in place of the hardcoded values below
+     */
     return _react2.default.createElement(
         "div",
         { className: "contact-card" },
-        _react2.default.createElement("img", { src: "./images/mr-whiskerson.png" }),
+        _react2.default.createElement("img", { src: props.img }),
         _react2.default.createElement(
             "h3",
             null,
-            "Mr. Whiskerson"
+            props.name
         ),
         _react2.default.createElement(
             "div",
@@ -1043,7 +1008,7 @@ function Contact() {
             _react2.default.createElement(
                 "p",
                 null,
-                "(212) 555-1234"
+                props.phone
             )
         ),
         _react2.default.createElement(
@@ -1053,11 +1018,21 @@ function Contact() {
             _react2.default.createElement(
                 "p",
                 null,
-                "mr.whiskaz@catnap.meow"
+                props.email
             )
         )
     );
 }
+
+/* 
+{
+    img: "./images/mr-whiskerson.png", 
+    name: "Mr. Whiskerson", 
+    phone: "(212) 555-1234", 
+    email: "mr.whiskaz@catnap.meow"
+}
+
+*/
 
 /***/ }),
 /* 15 */

@@ -895,8 +895,8 @@ function App() {
         "div",
         { className: "contacts" },
         _react2.default.createElement(_Contact2.default, {
-            img: "./images/mr-whiskerson.png",
-            name: "Mr. Whiskerson",
+            img: "./images/junglefeets.jpg",
+            name: "Mr. Feets",
             phone: "(212) 555-1234",
             email: "mr.whiskaz@catnap.meow"
         }),

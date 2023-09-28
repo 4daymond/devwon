@@ -3,7 +3,7 @@ import React from "react"
 export default function Contact() {
     return (
         <div className="contact-card">
-            <img src="./images/mr-whiskerson.png"/>
+            <img src="./images/fluffykins.png"/>
             <h3>Mr. Whiskerson</h3>
             <div className="info-group">
                 <img src="./images/phone-icon.png" />

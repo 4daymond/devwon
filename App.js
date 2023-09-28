@@ -9,7 +9,7 @@ function App() {
     return (
         <div className="contacts">
             <Contact 
-                img="./images/mr-whiskerson.png"
+                img="./images/fluffykins.png"
                 name="Mr. Whiskerson"
             />
             <Contact />

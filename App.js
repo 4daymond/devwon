@@ -6,7 +6,7 @@ function App() {
         <div className="contacts">
             <Contact 
                 img="./images/junglefeets.jpg" 
-                name="Mr. Feets"
+                name="Mr. Feetsie"
                 phone="(212) 555-1234"
                 email="mr.whiskaz@catnap.meow"
             />

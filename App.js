@@ -9,8 +9,8 @@ function App() {
     return (
         <div className="contacts">
             <Contact 
-                img="./images/junglefeet.png"
-                name="Mr. Wiggle"
+                img="./images/mr-whiskerson.png"
+                name="Mr. Whiskerson"
             />
             <Contact />
             <Contact />

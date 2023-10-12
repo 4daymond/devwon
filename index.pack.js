@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,9 +264,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(27);
+  module.exports = __webpack_require__(30);
 } else {
-  module.exports = __webpack_require__(26);
+  module.exports = __webpack_require__(29);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -549,7 +549,7 @@ module.exports = ExecutionEnvironment;
  * 
  */
 
-var isTextNode = __webpack_require__(21);
+var isTextNode = __webpack_require__(24);
 
 /*eslint-disable no-bitwise */
 
@@ -775,9 +775,9 @@ module.exports = warning;
 var printWarning = function() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactPropTypesSecret = __webpack_require__(22);
+  var ReactPropTypesSecret = __webpack_require__(25);
   var loggedTypeFailures = {};
-  var has = __webpack_require__(23);
+  var has = __webpack_require__(26);
 
   printWarning = function(text) {
     var message = 'Warning: ' + text;
@@ -880,48 +880,51 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = App;
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Contact = __webpack_require__(14);
+var _Navbar = __webpack_require__(16);
 
-var _Contact2 = _interopRequireDefault(_Contact);
+var _Navbar2 = _interopRequireDefault(_Navbar);
+
+var _Hero = __webpack_require__(15);
+
+var _Hero2 = _interopRequireDefault(_Hero);
+
+var _Card = __webpack_require__(14);
+
+var _Card2 = _interopRequireDefault(_Card);
+
+var _data = __webpack_require__(17);
+
+var _data2 = _interopRequireDefault(_data);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
+    var cards = _data2.default.map(function (item) {
+        return _react2.default.createElement(_Card2.default, _extends({
+            key: item.id
+        }, item));
+    });
+
     return _react2.default.createElement(
         "div",
-        { className: "contacts" },
-        _react2.default.createElement(_Contact2.default, {
-            img: "./images/junglefeets.jpg",
-            name: "Mr. Feetsiez",
-            phone: "(212) 555-1234",
-            email: "mr.whiskaz@catnap.meow"
-        }),
-        _react2.default.createElement(_Contact2.default, {
-            img: "./images/fluffykins.png",
-            name: "Fluffykins",
-            phone: "(212) 555-2345",
-            email: "fluff@me.com"
-        }),
-        _react2.default.createElement(_Contact2.default, {
-            img: "./images/felix.png",
-            name: "Felix",
-            phone: "(212) 555-4567",
-            email: "thecat@hotmail.com"
-        }),
-        _react2.default.createElement(_Contact2.default, {
-            img: "./images/pumpkin.png",
-            name: "Pumpkin",
-            phone: "(0800) CAT KING",
-            email: "pumpkin@scrimba.com"
-        })
+        null,
+        _react2.default.createElement(_Navbar2.default, null),
+        _react2.default.createElement(_Hero2.default, null),
+        _react2.default.createElement(
+            "section",
+            { className: "cards-list" },
+            cards
+        )
     );
 }
-
-exports.default = App;
 
 /***/ }),
 /* 13 */
@@ -962,9 +965,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(25);
+  module.exports = __webpack_require__(28);
 } else {
-  module.exports = __webpack_require__(24);
+  module.exports = __webpack_require__(27);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -979,7 +982,7 @@ if (process.env.NODE_ENV === 'production') {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = Contact;
+exports.default = Card;
 
 var _react = __webpack_require__(1);
 
@@ -987,55 +990,179 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Contact(props) {
-    /**
-     * Challenge: Fix the code below to use the `props`
-     * object values in place of the hardcoded values below
-     */
+function Card(props) {
+    var badgeText = void 0;
+    if (props.openSpots === 0) {
+        badgeText = "SOLD OUT";
+    } else if (props.location === "Online") {
+        badgeText = "ONLINE";
+    }
+
     return _react2.default.createElement(
         "div",
-        { className: "contact-card" },
-        _react2.default.createElement("img", { src: props.img }),
-        _react2.default.createElement(
-            "h3",
-            null,
-            props.name
+        { className: "card" },
+        badgeText && _react2.default.createElement(
+            "div",
+            { className: "card--badge" },
+            badgeText
         ),
+        _react2.default.createElement("img", {
+            src: "../images/" + props.coverImg,
+            className: "card--image"
+        }),
         _react2.default.createElement(
             "div",
-            { className: "info-group" },
-            _react2.default.createElement("img", { src: "./images/phone-icon.png" }),
+            { className: "card--stats" },
+            _react2.default.createElement("img", { src: "../images/star.png", className: "card--star" }),
             _react2.default.createElement(
-                "p",
+                "span",
                 null,
-                props.phone
+                props.stats.rating
+            ),
+            _react2.default.createElement(
+                "span",
+                { className: "gray" },
+                "(",
+                props.stats.reviewCount,
+                ") \u2022 "
+            ),
+            _react2.default.createElement(
+                "span",
+                { className: "gray" },
+                props.location
             )
         ),
         _react2.default.createElement(
-            "div",
-            { className: "info-group" },
-            _react2.default.createElement("img", { src: "./images/mail-icon.png" }),
+            "p",
+            { className: "card--title" },
+            props.title
+        ),
+        _react2.default.createElement(
+            "p",
+            { className: "card--price" },
             _react2.default.createElement(
-                "p",
-                null,
-                props.email
-            )
+                "span",
+                { className: "bold" },
+                "From $",
+                props.price
+            ),
+            " / person"
         )
     );
 }
 
-/* 
-{
-    img: "./images/mr-whiskerson.png", 
-    name: "Mr. Whiskerson", 
-    phone: "(212) 555-1234", 
-    email: "mr.whiskaz@catnap.meow"
-}
-
-*/
-
 /***/ }),
 /* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = Hero;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Hero() {
+    return _react2.default.createElement(
+        "section",
+        { className: "hero" },
+        _react2.default.createElement("img", { src: "../images/photo-grid.png", className: "hero--photo" }),
+        _react2.default.createElement(
+            "h1",
+            { className: "hero--header" },
+            "Online Experiences"
+        ),
+        _react2.default.createElement(
+            "p",
+            { className: "hero--text" },
+            "Join unique interactive activities led by one-of-a-kind hosts\u2014all without leaving home."
+        )
+    );
+}
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = Navbar;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Navbar() {
+    return _react2.default.createElement(
+        "nav",
+        null,
+        _react2.default.createElement("img", { src: "../images/airbnb-logo.png", className: "nav--logo" })
+    );
+}
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = [{
+    id: 1,
+    title: "Remodeling",
+    description: "I will share with you what I call \"Positively Impactful Moments of Disappointment.\" Throughout my career, many of my highest moments only came after setbacks and losses. But learning from those difficult moments is what gave me the ability to rise above them and reach my goals.",
+    price: 136,
+    coverImg: "katie-zaferes.png",
+    stats: {
+        rating: 5.0,
+        reviewCount: 6
+    },
+    location: "Online",
+    openSpots: 0
+}, {
+    id: 2,
+    title: "Learn Wedding Photography",
+    description: "Interested in becoming a wedding photographer? For beginner and experienced photographers alike, join us in learning techniques required to leave the happy couple with memories that'll last a lifetime.",
+    price: 125,
+    coverImg: "wedding-photography.png",
+    stats: {
+        rating: 5.0,
+        reviewCount: 30
+    },
+    location: "Online",
+    openSpots: 27
+}, {
+    id: 3,
+    title: "Group Mountain Biking",
+    description: "Experience the beautiful Norwegian landscape and meet new friends all while conquering rugged terrain on your mountain bike. (Bike provided!)",
+    price: 50,
+    coverImg: "mountain-bike.png",
+    stats: {
+        rating: 4.8,
+        reviewCount: 2
+    },
+    location: "Norway",
+    openSpots: 3
+}];
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1058,7 +1185,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById("root"));
 
 /***/ }),
-/* 16 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1093,7 +1220,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 17 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1108,7 +1235,7 @@ module.exports = camelize;
 
 
 
-var camelize = __webpack_require__(16);
+var camelize = __webpack_require__(19);
 
 var msPattern = /^-ms-/;
 
@@ -1136,7 +1263,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 18 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1172,7 +1299,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 19 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1187,7 +1314,7 @@ module.exports = hyphenate;
 
 
 
-var hyphenate = __webpack_require__(18);
+var hyphenate = __webpack_require__(21);
 
 var msPattern = /^ms-/;
 
@@ -1214,7 +1341,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 20 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1242,7 +1369,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1257,7 +1384,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(20);
+var isNode = __webpack_require__(23);
 
 /**
  * @param {*} object The object to check.
@@ -1270,7 +1397,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1289,14 +1416,14 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports) {
 
 module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
 
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1328,8 +1455,8 @@ var getActiveElement = __webpack_require__(8);
 var shallowEqual = __webpack_require__(9);
 var containsNode = __webpack_require__(7);
 var emptyObject = __webpack_require__(3);
-var hyphenateStyleName = __webpack_require__(19);
-var camelizeStyleName = __webpack_require__(17);
+var hyphenateStyleName = __webpack_require__(22);
+var camelizeStyleName = __webpack_require__(20);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -18610,7 +18737,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18855,7 +18982,7 @@ var vi={default:qi},wi=vi&&qi||vi;module.exports=wi.default?wi.default:wi;
 
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20337,7 +20464,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
